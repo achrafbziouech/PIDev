@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: Team_Leader
+ * Entity implementation class for Entity: Team_Leader _
  *
  */
 @Entity
