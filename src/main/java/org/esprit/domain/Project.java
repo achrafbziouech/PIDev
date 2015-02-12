@@ -3,7 +3,9 @@ package org.esprit.domain;
 import java.io.File;
 import java.io.Serializable;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -23,6 +25,10 @@ public class Project implements Serializable {
 	private Date delivery_date;
 	private File f;
 	private Etat etat;
+	@OneToOne
+	private Team team;
+	@OneToMany
+	private List<Task> tasks = new ArrayList<Task>();;
 	private static final long serialVersionUID = 1L;
 
 	public Project() {

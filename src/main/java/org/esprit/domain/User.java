@@ -2,6 +2,7 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class User implements Serializable {
 
 	   
@@ -24,6 +25,12 @@ public class User implements Serializable {
 	private String login;
 	private String password;
 	private long cin_number;
+	private String post;
+	private Date datenaissance;
+	private Date dateofadmission;
+	@ManyToOne
+	private Team team;
+	
 	private static final long serialVersionUID = 1L;
 		
 	@ManyToOne
@@ -94,6 +101,24 @@ public class User implements Serializable {
 
 	public void setCin_number(long cin_number) {
 		this.cin_number = cin_number;
+	}
+	public String getPost() {
+		return post;
+	}
+	public void setPost(String post) {
+		this.post = post;
+	}
+	public Date getDatenaissance() {
+		return datenaissance;
+	}
+	public void setDatenaissance(Date datenaissance) {
+		this.datenaissance = datenaissance;
+	}
+	public Date getDateofadmission() {
+		return dateofadmission;
+	}
+	public void setDateofadmission(Date dateofadmission) {
+		this.dateofadmission = dateofadmission;
 	}
    
 }

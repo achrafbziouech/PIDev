@@ -2,7 +2,9 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
+
 import javax.persistence.*;
+
 
 /**
  * Entity implementation class for Entity: Task
@@ -13,10 +15,18 @@ import javax.persistence.*;
 public class Task implements Serializable {
 
 	   
-	@Id
+	
 	private int task_id;
 	private String task_name;
 	private String duration;
+	@ManyToOne
+	@JoinColumn(name="idteam", insertable=false,updatable=false)
+	private Team teams;  
+	@EmbeddedId
+	private TaskId taskId;
+	@ManyToOne
+	@JoinColumn(name="idproject", insertable=false,updatable=false)
+	private Project projects;
 	private static final long serialVersionUID = 1L;
 
 	public Task() {

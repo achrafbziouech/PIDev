@@ -2,8 +2,12 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
+
+
 
 /**
  * Entity implementation class for Entity: Team
@@ -21,6 +25,10 @@ public class Team implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "team_leader_id_fk", nullable = false)
 	private Team_Leader team_lader; 
+	@OneToMany(mappedBy="team")
+	private List<User> employees = new ArrayList<User>();
+	@OneToOne(mappedBy="team")
+	private Project project;
 	public Team() {
 		super();
 	}   
