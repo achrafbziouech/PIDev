@@ -1,8 +1,10 @@
 package org.esprit.domain;
 
+import java.io.File;
 import java.io.Serializable;
 import java.lang.String;
 import java.util.Date;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,8 @@ public class Project implements Serializable {
 	private String project_name;
 	private Date start_date;
 	private Date delivery_date;
+	private File f;
+	private Etat etat;
 	private static final long serialVersionUID = 1L;
 
 	public Project() {
@@ -51,6 +55,18 @@ public class Project implements Serializable {
 
 	public void setDelivery_date(Date delivery_date) {
 		this.delivery_date = delivery_date;
+	}
+	public File getF() {
+		return f;
+	}
+	public void setF(File f) {
+		this.f = f;
+	}
+	public Etat getEtat() {
+		return etat;
+	}
+	public void setEtat(Etat etat) {
+		this.etat = etat;
 	}
    
 }
