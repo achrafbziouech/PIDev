@@ -12,7 +12,7 @@ import org.esprit.domain.Task;
  */
 @Stateless
 @LocalBean
-public class TaskManage implements TaskManageRemote, TaskManageLocal {
+public class TaskManage implements TaskManageRemote{
 	@PersistenceContext(unitName="ConsolidatedWorkloadCalculation")
 	private EntityManager em ;
 
