@@ -22,7 +22,7 @@ public class Administrator implements Serializable {
 	private String password_admin;
 	private static final long serialVersionUID = 1L;
 	@OneToMany(mappedBy = "Admin")
-	private List<User> users;
+	private List<Employee> employees;
 
 	@OneToMany(mappedBy = "Admin")
 	private List<Activity> Activities;

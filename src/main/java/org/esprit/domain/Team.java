@@ -25,8 +25,17 @@ public class Team implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "team_leader_id_fk", nullable = false)
 	private Team_Leader team_lader; 
+
+	
+	@OneToMany(mappedBy = "team")
+	private List<Employee> employees_Team;
+	/**
+	 * 
+	 */
 	@OneToMany(mappedBy="team")
-	private List<User> employees = new ArrayList<User>();
+	private List<Task>Tasks;
+	@OneToMany(mappedBy="team")
+	private List<Employee> employees = new ArrayList<Employee>();
 	@OneToOne(mappedBy="team")
 	private Project project;
 	public Team() {

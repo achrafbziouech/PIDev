@@ -6,7 +6,7 @@ import java.lang.String;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: Activity
+ * Entity implementation class for Entity: Activity   
  *
  */
 @Entity

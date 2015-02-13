@@ -2,6 +2,8 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -19,7 +21,9 @@ public class Training_session implements Serializable {
 	private String training_session_type;
 	private String training_session_duration;
 	private static final long serialVersionUID = 1L;
-
+	@ManyToMany
+    private List<Trainer> trainers ;
+    
 	public Training_session() {
 		super();
 	}   

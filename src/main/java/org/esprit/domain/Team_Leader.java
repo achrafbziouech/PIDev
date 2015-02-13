@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Team_Leader extends User implements Serializable {
+public class Team_Leader extends Employee implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;

@@ -14,31 +14,35 @@ import javax.persistence.*;
 
 public class Task implements Serializable {
 
-	   
-	
-	private int task_id;
+
+	@EmbeddedId
+	private TaskId taskid;	   
 	private String task_name;
 	private String duration;
 	@ManyToOne
 	@JoinColumn(name="idteam", insertable=false,updatable=false)
 	private Team teams;  
-	@EmbeddedId
-	private TaskId taskId;
 	@ManyToOne
 	@JoinColumn(name="idproject", insertable=false,updatable=false)
 	private Project projects;
 	private static final long serialVersionUID = 1L;
-
+/**
+ * 
+ */
+	@ManyToOne
+	@JoinColumn(name="project_id",insertable=false,updatable=false)
+	private Project project;
+	
+	@ManyToOne
+	@JoinColumn(name="team_id",insertable=false,updatable=false)
+	private Team team;
+	
 	public Task() {
 		super();
 	}   
-	public int getTask_id() {
-		return this.task_id;
-	}
+	
 
-	public void setTask_id(int task_id) {
-		this.task_id = task_id;
-	}   
+	   
 	public String getTask_name() {
 		return this.task_name;
 	}

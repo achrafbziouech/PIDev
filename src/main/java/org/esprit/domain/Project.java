@@ -1,6 +1,5 @@
 package org.esprit.domain;
 
-import java.io.File;
 import java.io.Serializable;
 import java.lang.String;
 import java.util.ArrayList;
@@ -21,16 +20,22 @@ public class Project implements Serializable {
 	@Id
 	private int project_id;
 	private String project_name;
+	private String description;
 	private Date start_date;
 	private Date delivery_date;
-	private File f;
-	private Etat etat;
+	private State state;
+	private static final long serialVersionUID = 1L;
+/**
+ * 
+ * 
+ */
+
+	
+	@OneToMany(mappedBy="project",cascade=CascadeType.ALL)
+		private List<Task> tasks = new ArrayList<Task>();
 	@OneToOne
 	private Team team;
-	@OneToMany
-	private List<Task> tasks = new ArrayList<Task>();;
-	private static final long serialVersionUID = 1L;
-
+	
 	public Project() {
 		super();
 	}   
@@ -62,17 +67,18 @@ public class Project implements Serializable {
 	public void setDelivery_date(Date delivery_date) {
 		this.delivery_date = delivery_date;
 	}
-	public File getF() {
-		return f;
+
+	public State getState() {
+		return state;
 	}
-	public void setF(File f) {
-		this.f = f;
+	public void setState(State state) {
+		this.state = state;
 	}
-	public Etat getEtat() {
-		return etat;
+	public String getDescription() {
+		return description;
 	}
-	public void setEtat(Etat etat) {
-		this.etat = etat;
+	public void setDescription(String description) {
+		this.description = description;
 	}
    
 }

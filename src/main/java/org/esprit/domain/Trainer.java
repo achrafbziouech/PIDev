@@ -1,6 +1,8 @@
 package org.esprit.domain;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -9,11 +11,21 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Trainer extends User implements Serializable {
+public class Trainer extends Employee implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-
+    
+	@ManyToMany
+	@JoinTable(
+	  name="train_Sess",
+	  joinColumns=@JoinColumn(name="trainer_Id"),
+	  inverseJoinColumns = @JoinColumn(name="session_id")
+	 )
+		
+	
+    private List<Training_session> training_sessions ;
+    
 	public Trainer() {
 		super();
 	}

@@ -1,6 +1,8 @@
 package org.esprit.domain;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -18,7 +20,10 @@ public class Workload implements Serializable {
 	private float extra_hours;
 	private int completed_task;
 	private static final long serialVersionUID = 1L;
-
+	@ManyToMany
+	private List<Employee> Employees;
+	
+	
 	public Workload() {
 		super();
 	}   
