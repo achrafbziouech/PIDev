@@ -1,9 +1,7 @@
 package org.esprit.domain;
 
 import java.io.Serializable;
-import java.lang.String;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.*;
 
@@ -14,46 +12,47 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@Table(name = "t_team")
 public class Team implements Serializable {
-
-	   
-	@Id
-	private int team_id;
-	private String team_leader_name;
-	private static final long serialVersionUID = 1L;
-	@OneToOne
-	@JoinColumn(name = "team_leader_id_fk", nullable = false)
-	private Team_Leader team_lader; 
-
 	
-	@OneToMany(mappedBy = "team")
-	private List<Employee> employees_Team;
-	/**
-	 * 
-	 */
-	@OneToMany(mappedBy="team")
-	private List<Task>Tasks;
-	@OneToMany(mappedBy="team")
-	private List<Employee> employees = new ArrayList<Employee>();
-	@OneToOne(mappedBy="team")
-	private Project project;
-	public Team() {
-		super();
-	}   
-	public int getTeam_id() {
-		return this.team_id;
-	}
+private static final long serialVersionUID = 1L;
+	
+	
+private int id;
+private Project project;
+private Team_Leader team_ld;
 
-	public void setTeam_id(int team_id) {
-		this.team_id = team_id;
-	}   
-	public String getTeam_leader_name() {
-		return this.team_leader_name;
-	}
+private Collection<Employee>employees;
 
-	public void setTeam_leader_name(String team_leader_name) {
-		this.team_leader_name = team_leader_name;
-	}
-   
+
+public Team() {
+	super();
+}
+
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+public int getId() {return this.id;}
+public void setId(int id) {this.id = id;}
+
+@OneToMany(mappedBy="team")
+public Collection<Employee> getEmployees() {return employees;}
+public void setEmployees(Collection<Employee> employees) {this.employees = employees;}
+
+
+@OneToOne
+public Project getProject() {return project;}
+public void setProject(Project project) {this.project = project;}
+
+@OneToOne
+public Team_Leader getTeam_ld() {
+	return team_ld;
+}
+public void setTeam_ld(Team_Leader team_ld) {
+	this.team_ld = team_ld;
+}
+
+
+
+
+
 }

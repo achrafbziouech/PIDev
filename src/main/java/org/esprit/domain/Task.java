@@ -2,6 +2,7 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -11,51 +12,49 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@Table(name="t_task")
 public class Task implements Serializable {
 
 
-	@EmbeddedId
-	private TaskId taskid;	   
-	private String task_name;
-	private String duration;
-	@ManyToOne
-	@JoinColumn(name="idteam", insertable=false,updatable=false)
-	private Team teams;  
-	@ManyToOne
-	@JoinColumn(name="idproject", insertable=false,updatable=false)
-	private Project projects;
 	private static final long serialVersionUID = 1L;
-/**
- * 
- */
-	@ManyToOne
-	@JoinColumn(name="project_id",insertable=false,updatable=false)
-	private Project project;
 	
-	@ManyToOne
-	@JoinColumn(name="team_id",insertable=false,updatable=false)
-	private Team team;
+	private int id;
+	private Project project;
+	private String description;
+	private Date deadLine;
+	private Date startDate;
+	private State state;
+	private Employee employee;
 	
 	public Task() {
 		super();
 	}   
 	
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public int getId() {return this.id;}
+	public void setId(int id) {this.id = id;}    
+		
+	public String getDescription() {return this.description;}
+	public void setDescription(String description) {this.description = description;}   
 	   
-	public String getTask_name() {
-		return this.task_name;
-	}
+	public Date getDeadLine() {return this.deadLine;}
+	public void setDeadLine(Date deadLine) {this.deadLine = deadLine;}   
+	
+	public Date getStartDate() {return this.startDate;}
+	public void setStartDate(Date startDate) {this.startDate = startDate;}
 
-	public void setTask_name(String task_name) {
-		this.task_name = task_name;
-	}   
-	public String getDuration() {
-		return this.duration;
-	}
+	
+	@ManyToOne
+	@JoinColumn(nullable=false)
+	public Project getProject() {return project;}
+	public void setProject(Project project) {this.project = project;}
+	
+	@ManyToOne
+	public Employee getEmployee() {return employee;}
+	public void setEmployee(Employee employee) {this.employee = employee;}
 
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
-   
+	public State getState() {return state;}
+	public void setState(State state) {this.state = state;}   
+		
 }

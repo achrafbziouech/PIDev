@@ -13,9 +13,11 @@ public class Team_Leader extends Employee implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-	@OneToOne
-	@JoinColumn(name = "team_id_fk", nullable = false)
 	private Team team;
+
+	@OneToOne(mappedBy="team_ld")
+	public Team getTeam() {return team;}
+	public void setTeam(Team team) {this.team = team;}
 	public Team_Leader() {
 		super();
 	}

@@ -9,7 +9,6 @@
 		<class>org.esprit.domain.Project</class>
 		<class>org.esprit.domain.Reward</class>
 		<class>org.esprit.domain.Task</class>
-		<class>org.esprit.domain.TaskId</class>
 		<class>org.esprit.domain.Team</class>
 		<class>org.esprit.domain.Team_Leader</class>
 		<class>org.esprit.domain.Trainer</class>

@@ -1,11 +1,15 @@
 package org.esprit.service;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.esprit.domain.Task;
+
+
 
 /**
  * Session Bean implementation class TaskManage
@@ -55,5 +59,11 @@ public class TaskManage implements TaskManageRemote{
 		em.remove(em.merge(t));
 		
 	}
+
+	@Override
+	public List<Task> findAll() {
+		return em.createQuery("Select p from Task p ",Task.class).getResultList();
+	}
+	
 
 }

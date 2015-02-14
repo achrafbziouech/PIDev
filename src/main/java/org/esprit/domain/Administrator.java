@@ -21,7 +21,7 @@ public class Administrator implements Serializable {
 	private String Login_admin;
 	private String password_admin;
 	private static final long serialVersionUID = 1L;
-	@OneToMany(mappedBy = "Admin")
+	@OneToMany(mappedBy = "admin")
 	private List<Employee> employees;
 
 	@OneToMany(mappedBy = "Admin")

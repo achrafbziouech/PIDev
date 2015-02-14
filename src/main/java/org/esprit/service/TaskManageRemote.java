@@ -1,8 +1,12 @@
 package org.esprit.service;
 
+import java.util.List;
+
 import javax.ejb.Remote;
 
 import org.esprit.domain.Task;
+
+
 
 @Remote
 public interface TaskManageRemote {
@@ -27,5 +31,10 @@ public interface TaskManageRemote {
 	 * @param t
 	 */
 	public void DeleteTask(Task t);
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Task> findAll();
 
 }

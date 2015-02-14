@@ -2,9 +2,9 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.*;
 
@@ -13,6 +13,7 @@ import javax.persistence.*;
  *
  */
 @Entity
+@Table(name="t_project")
 
 public class Project implements Serializable {
 
@@ -20,10 +21,13 @@ public class Project implements Serializable {
 	@Id
 	private int project_id;
 	private String project_name;
+	private Domaine Domaine;
 	private String description;
 	private Date start_date;
 	private Date delivery_date;
 	private State state;
+	private Team team;
+	private Collection<Task> tasks;
 	private static final long serialVersionUID = 1L;
 /**
  * 
@@ -31,10 +35,9 @@ public class Project implements Serializable {
  */
 
 	
-	@OneToMany(mappedBy="project",cascade=CascadeType.ALL)
-		private List<Task> tasks = new ArrayList<Task>();
-	@OneToOne
-	private Team team;
+	
+		
+	
 	
 	public Project() {
 		super();
@@ -67,7 +70,7 @@ public class Project implements Serializable {
 	public void setDelivery_date(Date delivery_date) {
 		this.delivery_date = delivery_date;
 	}
-
+	@Enumerated(EnumType.STRING)
 	public State getState() {
 		return state;
 	}
@@ -79,6 +82,26 @@ public class Project implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public Domaine getDomaine() {
+		return Domaine;
+	}
+	public void setDomaine(Domaine domaine) {
+		Domaine = domaine;
+	}
+	@OneToOne
+	public Team getTeam() {
+		return team;
+	}
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+	@OneToMany(mappedBy="project")
+	public Collection<Task> getTasks() {
+		return tasks;
+	}
+	public void setTasks(Collection<Task> tasks) {
+		this.tasks = tasks;
 	}
    
 }
