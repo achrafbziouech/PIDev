@@ -5,7 +5,7 @@
 		<class>org.esprit.domain.Activity</class>
 		<class>org.esprit.domain.Administrator</class>
 		<class>org.esprit.domain.Director</class>
-		<class>org.esprit.domain.Employee</class>
+		<class>org.esprit.domain.Personnel</class>
 		<class>org.esprit.domain.Project</class>
 		<class>org.esprit.domain.Reward</class>
 		<class>org.esprit.domain.Task</class>
@@ -14,6 +14,7 @@
 		<class>org.esprit.domain.Trainer</class>
 		<class>org.esprit.domain.Training_session</class>
 		<class>org.esprit.domain.Workload</class>
+		<class>org.esprit.domain.Developpeur</class>
 		<properties>
 	<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 	

@@ -24,7 +24,6 @@ public class Task implements Serializable {
 	private Date deadLine;
 	private Date startDate;
 	private State state;
-	private Employee employee;
 	
 	public Task() {
 		super();
@@ -44,15 +43,10 @@ public class Task implements Serializable {
 	public Date getStartDate() {return this.startDate;}
 	public void setStartDate(Date startDate) {this.startDate = startDate;}
 
-	
 	@ManyToOne
-	@JoinColumn(nullable=false)
 	public Project getProject() {return project;}
 	public void setProject(Project project) {this.project = project;}
 	
-	@ManyToOne
-	public Employee getEmployee() {return employee;}
-	public void setEmployee(Employee employee) {this.employee = employee;}
 
 	public State getState() {return state;}
 	public void setState(State state) {this.state = state;}   

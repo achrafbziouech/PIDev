@@ -2,9 +2,10 @@ package org.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.String;
-import java.util.Collection;
 import java.util.Date;
 
+
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -21,13 +22,12 @@ public class Project implements Serializable {
 	@Id
 	private int project_id;
 	private String project_name;
-	private Domaine Domaine;
 	private String description;
 	private Date start_date;
 	private Date delivery_date;
 	private State state;
 	private Team team;
-	private Collection<Task> tasks;
+	private List<Task> tasks;
 	private static final long serialVersionUID = 1L;
 /**
  * 
@@ -83,12 +83,6 @@ public class Project implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Domaine getDomaine() {
-		return Domaine;
-	}
-	public void setDomaine(Domaine domaine) {
-		Domaine = domaine;
-	}
 	@OneToOne
 	public Team getTeam() {
 		return team;
@@ -97,11 +91,13 @@ public class Project implements Serializable {
 		this.team = team;
 	}
 	@OneToMany(mappedBy="project")
-	public Collection<Task> getTasks() {
+	public List<Task> getTasks() {
 		return tasks;
 	}
-	public void setTasks(Collection<Task> tasks) {
+	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
 	}
+	
+	
    
 }

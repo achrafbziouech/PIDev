@@ -21,7 +21,7 @@ public class Workload implements Serializable {
 	private int completed_task;
 	private static final long serialVersionUID = 1L;
 	@ManyToMany
-	private List<Employee> Employees;
+	private List<Personnel> personnels;
 	
 	
 	public Workload() {

@@ -1,7 +1,7 @@
 package org.esprit.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,11 +18,11 @@ public class Team implements Serializable {
 private static final long serialVersionUID = 1L;
 	
 	
-private int id;
+private int id_team;
 private Project project;
 private Team_Leader team_ld;
 
-private Collection<Employee>employees;
+private List<Developpeur>dev;
 
 
 public Team() {
@@ -31,12 +31,12 @@ public Team() {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-public int getId() {return this.id;}
-public void setId(int id) {this.id = id;}
+public int getId() {return this.id_team;}
+public void setId(int id) {this.id_team = id;}
 
 @OneToMany(mappedBy="team")
-public Collection<Employee> getEmployees() {return employees;}
-public void setEmployees(Collection<Employee> employees) {this.employees = employees;}
+public List<Developpeur> getEmployees() {return dev;}
+public void setEmployees(List<Developpeur> dev) {this.dev = dev;}
 
 
 @OneToOne

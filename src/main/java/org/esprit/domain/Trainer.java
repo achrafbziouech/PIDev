@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Trainer extends Employee implements Serializable {
+public class Trainer extends Personnel implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
