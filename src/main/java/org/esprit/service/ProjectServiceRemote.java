@@ -8,8 +8,16 @@ import org.esprit.domain.Project;
 
 @Remote
 public interface ProjectServiceRemote {
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Project> findAll();
-	public Project findBYState(String state);
+	/**
+	 * 
+	 * @return
+	 */
+	public Project findBYState();
 
 
 }

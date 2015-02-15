@@ -25,20 +25,17 @@ public class Project implements Serializable {
 	private String description;
 	private Date start_date;
 	private Date delivery_date;
+	@Enumerated(EnumType.STRING)
 	private State state;
+	@ManyToOne
 	private Team team;
+	@OneToMany(mappedBy="project")
 	private List<Task> tasks;
 	private static final long serialVersionUID = 1L;
 /**
  * 
  * 
  */
-
-	
-	
-		
-	
-	
 	public Project() {
 		super();
 	}   
@@ -70,7 +67,7 @@ public class Project implements Serializable {
 	public void setDelivery_date(Date delivery_date) {
 		this.delivery_date = delivery_date;
 	}
-	@Enumerated(EnumType.STRING)
+	
 	public State getState() {
 		return state;
 	}
@@ -83,20 +80,9 @@ public class Project implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@OneToOne
-	public Team getTeam() {
-		return team;
-	}
-	public void setTeam(Team team) {
-		this.team = team;
-	}
-	@OneToMany(mappedBy="project")
-	public List<Task> getTasks() {
-		return tasks;
-	}
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
-	}
+	
+	
+	
 	
 	
    

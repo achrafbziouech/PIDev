@@ -26,6 +26,9 @@ public class TaskService implements TaskServiceRemote {
     public TaskService() {
         // TODO Auto-generated constructor stub
     }
+    /**
+     * this method to add a task
+     */
 
 	@Override
 	public void addtask(Task t) {
@@ -33,19 +36,27 @@ public class TaskService implements TaskServiceRemote {
 		em.persist(t);
 		
 	}
-
+	/**
+	 * this method to update a task
+	 */
 	@Override
 	public void updatetask(Task t) {
 		// TODO Auto-generated method stub
 		em.merge(t);
 		
 	}
+	/**
+	 * this method to find a task 
+	 */
 
 	@Override
 	public Task findTask(int idtask) {
 		// TODO Auto-generated method stub
 		return em.find(Task.class,idtask );
 	}
+	/**
+	 * this method to delete a task
+	 */
 
 	@Override
 	public void deleteTask(Task t) {
@@ -53,6 +64,9 @@ public class TaskService implements TaskServiceRemote {
 		em.remove(em.find(Task.class, t.getId()));
 		
 	}
+	/**
+	 * this method to display all task
+	 */
 
 	@Override
 	public List<Task> findAll() {
@@ -60,6 +74,9 @@ public class TaskService implements TaskServiceRemote {
 		return em.createQuery("Select t from t_task t ",Task.class).getResultList();
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public Task findBYid(int idtask) {
 		// TODO Auto-generated method stub

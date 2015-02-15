@@ -18,12 +18,11 @@ public class Task implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private int id_task;
 	private Project project;
 	private String description;
 	private Date deadLine;
 	private Date startDate;
-	private State state;
 	
 	public Task() {
 		super();
@@ -31,8 +30,8 @@ public class Task implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {return this.id;}
-	public void setId(int id) {this.id = id;}    
+	public int getId() {return this.id_task;}
+	public void setId(int id) {this.id_task = id;}    
 		
 	public String getDescription() {return this.description;}
 	public void setDescription(String description) {this.description = description;}   
@@ -46,9 +45,6 @@ public class Task implements Serializable {
 	@ManyToOne
 	public Project getProject() {return project;}
 	public void setProject(Project project) {this.project = project;}
-	
-
-	public State getState() {return state;}
-	public void setState(State state) {this.state = state;}   
+  
 		
 }

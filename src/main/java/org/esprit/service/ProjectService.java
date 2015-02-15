@@ -27,17 +27,23 @@ public class ProjectService implements ProjectServiceRemote {
     public ProjectService() {
         // TODO Auto-generated constructor stub
     }
+    /**
+     * this method to find all project
+     */
 
 	@Override
 	public List<Project> findAll() {
-		return em.createQuery("Select p from Project_t p ",Project.class).getResultList();
+		return em.createQuery("Select p from t_Project p ",Project.class).getResultList();
 	}
+	/**
+	 * this method to find all project of state initial
+	 */
 
 	@Override
-	public Project findBYState(String state) {
-		String jpq1="Select p from Project_t p where p.state =:param";
+	public Project findBYState() {
+		String jpq1="Select p from t_project p where p.state =:param";
 		Query query =em.createQuery(jpq1);
-		query.setParameter("param", state);
+		query.setParameter("param", "initial");
 		
 		return (Project) query.getSingleResult();
 	}

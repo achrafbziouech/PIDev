@@ -19,7 +19,6 @@ public class Activity implements Serializable {
 	private String activity_name;
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
-	@JoinColumn(name = "Admin_id_fk")
 	private Administrator Admin;
 	
 	public Activity() {

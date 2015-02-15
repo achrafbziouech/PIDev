@@ -4,6 +4,7 @@
 	<jta-data-source>java:/mysqlDS</jta-data-source>
 		<class>org.esprit.domain.Activity</class>
 		<class>org.esprit.domain.Administrator</class>
+		<class>org.esprit.domain.Developpeur</class>
 		<class>org.esprit.domain.Director</class>
 		<class>org.esprit.domain.Personnel</class>
 		<class>org.esprit.domain.Project</class>
@@ -14,7 +15,6 @@
 		<class>org.esprit.domain.Trainer</class>
 		<class>org.esprit.domain.Training_session</class>
 		<class>org.esprit.domain.Workload</class>
-		<class>org.esprit.domain.Developpeur</class>
 		<properties>
 	<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 	

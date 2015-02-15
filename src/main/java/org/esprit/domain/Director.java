@@ -1,6 +1,7 @@
 package org.esprit.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,8 +16,8 @@ public class Director extends Personnel implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-	@OneToMany(mappedBy = "director")
-	private List<Reward> Rewards;
+	@OneToMany(mappedBy = "director",cascade=CascadeType.ALL)
+	private List<Reward> Rewards = new ArrayList<Reward>();
 	
 	public Director() {
 		super();

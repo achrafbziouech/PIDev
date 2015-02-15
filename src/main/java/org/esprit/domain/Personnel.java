@@ -11,8 +11,8 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type")
+@Inheritance(strategy=InheritanceType.JOINED)
+//@DiscriminatorColumn(name="type")
 public class Personnel implements Serializable {
 	
 
@@ -29,11 +29,15 @@ public class Personnel implements Serializable {
 	private String email;
 	private String adress;
 	private int tel;
-	
+	@ManyToMany
 	private List<Workload> wk;
-	private Administrator admin;
+	@ManyToOne
+	private Administrator administrateur;
 		
 	
+	public Administrator getAdministrateur() {return administrateur;}
+	public void setAdministrateur(Administrator administrateur) {this.administrateur = administrateur;}
+
 	public Personnel() {
 		super();
 	} 
@@ -69,32 +73,9 @@ public class Personnel implements Serializable {
 	
 	public int getTel() {return this.tel;}
 	public void setTel(int tel) {this.tel = tel;}   
-	@ManyToOne
-	@JoinColumn(name = "Admin_id_fk")
-	public Administrator getAdmin() {
-		return admin;
-	}
 
-	public void setAdmin(Administrator admin) {
-		this.admin = admin;
-	}
-
-	@ManyToMany
-	@JoinColumn(name="work_id")
-	public List<Workload> getWk() {
-		return wk;
-	}
-
-	public void setWk(List<Workload> wk) {
-		this.wk = wk;
-	}
-
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
+	
+	public String getGenre() {return genre;}
+	public void setGenre(String genre) {this.genre = genre;}
 	
 }

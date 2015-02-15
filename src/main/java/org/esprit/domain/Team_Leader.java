@@ -10,16 +10,12 @@ import javax.persistence.*;
 @Entity
 
 public class Team_Leader extends Personnel implements Serializable {
-
+	
+	@Enumerated(EnumType.STRING)
 	private Domaine domaine;
-	private String Adress;
 	private String post;
 	private static final long serialVersionUID = 1L;
-	private Team team;
-
-	@OneToOne
-	public Team getTeam() {return team;}
-	public void setTeam(Team team) {this.team = team;}
+	/*private Team team;*/
 	public Team_Leader() {
 		super();
 	}
@@ -28,12 +24,6 @@ public class Team_Leader extends Personnel implements Serializable {
 	}
 	public void setDomaine(Domaine domaine) {
 		this.domaine = domaine;
-	}
-	public String getAdress() {
-		return Adress;
-	}
-	public void setAdress(String adress) {
-		Adress = adress;
 	}
 	public String getPost() {
 		return post;
